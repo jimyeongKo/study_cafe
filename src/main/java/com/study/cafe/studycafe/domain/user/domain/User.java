@@ -29,6 +29,10 @@ public class User implements UserDetails {
 
     private String Name;
 
+    private String password;
+
+    private int age;
+
     @ElementCollection(fetch = FetchType.EAGER)
     @Builder.Default
     private final List<String> roles = new ArrayList<>();

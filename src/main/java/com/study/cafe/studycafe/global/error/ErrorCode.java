@@ -27,6 +27,7 @@ public enum ErrorCode {
     CHECK_USER_INVALID(400, "M004", "해당 정보에 맞는 유저가 없습니다."),
     USER_NOT_MATCH(400, "M005", "유저 정보가 맞지 않습니다"),
 
+
     //FILE
     FILE_NOT_FOUND(400, "R001", "해당 파일을 찾을 수가 없습니다."),
     FILE_SAVE_ERROR(400, "R001", "파일 저장에 실패하였습니다."),
@@ -34,8 +35,8 @@ public enum ErrorCode {
     //Board
     BOARD_NOT_FOUND(400, "B001", "해당 게시글을 찾을 수 없습니다."),
 
-    //Comment
-    COMMENT_NOT_FOUND(400, "F001", "해당 댓글을 찾을 수 없습니다.")
+    //Coupon
+    COUPON_NOT_FOUND(400, "F001", "해당 쿠폰을 찾을 수 없습니다.")
 
     ;
 

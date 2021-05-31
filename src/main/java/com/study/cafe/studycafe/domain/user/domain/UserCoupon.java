@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
@@ -23,4 +24,6 @@ public class UserCoupon {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Coupon coupon;
+
+    private LocalDateTime createTime;
 }

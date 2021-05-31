@@ -1,5 +1,6 @@
 package com.study.cafe.studycafe.domain.user.domain;
 
+import com.study.cafe.studycafe.domain.user.dto.JoinRequest;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,9 +27,10 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
     private String phoneNum;
 
-    private String Name;
+    private String name;
 
     private String password;
 
@@ -46,12 +49,12 @@ public class User implements UserDetails {
 
     @Override
     public String getPassword() {
-        return getPassword();
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return getName();
+        return name;
     }
 
     @Override
@@ -72,5 +75,15 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return false;
+    }
+
+    public static User create(JoinRequest request, String encodePassword) {
+        return User.builder()
+                .age(request.getAge())
+                .password(encodePassword)
+                .name(request.getName())
+                .phoneNum(request.getPhoneNum())
+                .roles(Collections.singletonList("ROLE_USER"))
+                .build();
     }
 }

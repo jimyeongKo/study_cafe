@@ -1,5 +1,6 @@
 package com.study.cafe.studycafe.domain.magnet.domain;
 
+import com.study.cafe.studycafe.domain.magnet.dto.MagnetRequest;
 import com.study.cafe.studycafe.domain.magnet.model.MagnetType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,4 +28,12 @@ public class Magnet {
     private String num;
 
     private Boolean isAvailable;
+
+    public static Magnet create(MagnetRequest request) {
+        return Magnet.builder()
+                .title(request.getTitle())
+                .num(request.getNum())
+                .isAvailable(false)
+                .build();
+    }
 }
